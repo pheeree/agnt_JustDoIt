@@ -24,6 +24,13 @@ agnt_JustDoIt/
 │   ├── justdoit.md         # 🎯 메인: 아이디어 → 프로젝트 생성 (5 Phase)
 │   ├── refine.md           # 계획 수정
 │   └── nextstep.md         # 다음 스텝 제안
+├── .agents/workflows/      # 🌀 Antigravity 워크플로우
+│   ├── justdoit.md         # 🎯 메인 (강화 버전)
+│   ├── refine.md           # 계획 수정
+│   ├── nextstep.md         # 다음 스텝 제안
+│   ├── preview.md          # 🖥️ 브라우저 미리보기
+│   ├── deploy.md           # 🚀 배포 자동화
+│   └── issue.md            # 📋 GitHub Issues 일괄 생성
 ├── scripts/                # 헬퍼 스크립트
 │   ├── create-repo.sh      # GitHub 저장소 생성 (gh CLI)
 │   └── scaffold.sh         # 프로젝트 스캐폴딩 (6가지 타입)
@@ -55,6 +62,15 @@ agnt_JustDoIt/
 ### 문서화
 - [x] `docs/SETUP_GUIDE.md` — 환경설정 가이드 작성
 
+### Antigravity 워크플로우 포팅
+- [x] `.agents/workflows/justdoit.md` — 메인 워크플로우 (웹 검색 강화, turbo 자동실행)
+- [x] `.agents/workflows/refine.md` — 계획 수정 (자동 커밋)
+- [x] `.agents/workflows/nextstep.md` — 다음 스텝 (GitHub Issues 연동)
+- [x] `.agents/workflows/preview.md` — 🆕 브라우저 미리보기
+- [x] `.agents/workflows/deploy.md` — 🆕 배포 자동화
+- [x] `.agents/workflows/issue.md` — 🆕 GitHub Issues 일괄 생성
+- [x] `README.md` 안티그라비티 섹션 추가
+
 ### Git 커밋 이력
 ```
 dd93d15 📚 Add environment setup guide (docs/SETUP_GUIDE.md)
@@ -83,6 +99,16 @@ ef4bf9c 📝 Add .gitignore
 ### 스캐폴딩 지원 타입
 `web` | `api` | `cli` | `python` | `library` | `fullstack`
 
+### Antigravity 워크플로우 (🆕)
+| 워크플로우  | 설명                     | Claude Code 대비 강화점                   |
+| ----------- | ------------------------ | ----------------------------------------- |
+| `/justdoit` | 아이디어 → 프로젝트 생성 | 유사 프로젝트 웹 검색, Mermaid 다이어그램 |
+| `/refine`   | 계획 수정                | 자동 커밋 & 푸시 (`// turbo`)             |
+| `/nextstep` | 다음 스텝 제안           | GitHub Issues 연동                        |
+| `/preview`  | 브라우저 미리보기        | 🆕 dev 서버 → 브라우저 확인 → 스크린샷     |
+| `/deploy`   | 배포 자동화              | 🆕 Vercel/Netlify 자동 배포                |
+| `/issue`    | 이슈 일괄 생성           | 🆕 PROJECT_PLAN → GitHub Issues            |
+
 ---
 
 ## 💡 다음 세션에서 할 수 있는 업그레이드 아이디어
@@ -101,12 +127,12 @@ ef4bf9c 📝 Add .gitignore
 ### 🔄 프로젝트 관리 기능
 - [ ] `/status` — 프로젝트 진행률 대시보드
 - [ ] `/milestone` — 마일스톤 관리
-- [ ] GitHub Issues 자동 생성 연동
+- [x] ~~GitHub Issues 자동 생성 연동~~ → `issue.md` 워크플로우로 구현
 
 ### 💬 커맨드 고도화
 - [ ] `/refine` 대화형 피드백 루프 강화
 - [ ] `/nextstep` 코드 분석 기반 스마트 추천
-- [ ] `/deploy` — 배포 자동화 (Vercel, Railway 등)
+- [x] ~~`/deploy` — 배포 자동화~~ → `deploy.md` 워크플로우로 구현
 
 ### 🔧 개발자 경험 개선
 - [ ] 에러 핸들링 및 fallback 로직 강화

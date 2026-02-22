@@ -107,13 +107,46 @@ agnt_JustDoIt/
 │   ├── justdoit.md         # 🎯 메인: 아이디어 → 프로젝트 생성
 │   ├── refine.md           # 계획 수정
 │   └── nextstep.md         # 다음 스텝 제안
+├── .agents/workflows/      # 🌀 Antigravity 워크플로우
+│   ├── justdoit.md         # 🎯 메인 (강화 버전)
+│   ├── refine.md           # 계획 수정
+│   ├── nextstep.md         # 다음 스텝 제안
+│   ├── preview.md          # 🖥️ 브라우저 미리보기
+│   ├── deploy.md           # 🚀 배포 자동화
+│   └── issue.md            # 📋 GitHub Issues 일괄 생성
 ├── scripts/                # 헬퍼 스크립트
 │   ├── create-repo.sh      # GitHub 저장소 생성 (gh CLI)
 │   └── scaffold.sh         # 프로젝트 스캐폴딩 (6가지 타입)
 ├── templates/              # 템플릿
 │   └── PROJECT_PLAN.md     # 계획서 템플릿
+├── docs/                   # 문서
+│   ├── SETUP_GUIDE.md      # 환경설정 가이드
+│   └── SESSION_LOG.md      # 개발 세션 기록
 ├── CLAUDE.md               # Claude 컨텍스트
 └── README.md
+```
+
+## 🌀 Antigravity 버전
+
+Antigravity(Gemini) 환경에서도 동일한 에이전트를 사용할 수 있습니다.
+
+### 추가 기능
+
+| 워크플로우  | 설명                     | Claude Code에 없는 기능                    |
+| ----------- | ------------------------ | ------------------------------------------ |
+| `/justdoit` | 아이디어 → 프로젝트 생성 | 유사 프로젝트 웹 검색, 아키텍처 다이어그램 |
+| `/refine`   | 계획 수정                | 자동 커밋 & 푸시                           |
+| `/nextstep` | 다음 스텝 제안           | GitHub Issues 연동                         |
+| `/preview`  | 브라우저 미리보기        | 🆕 dev 서버 → 브라우저 확인 → 스크린샷      |
+| `/deploy`   | 배포 자동화              | 🆕 Vercel/Netlify 자동 배포                 |
+| `/issue`    | 이슈 일괄 생성           | 🆕 PROJECT_PLAN → GitHub Issues             |
+
+### 설치
+
+```bash
+# 워크플로우 파일을 프로젝트에 복사
+mkdir -p .agents/workflows
+cp /path/to/agnt_JustDoIt/.agents/workflows/*.md .agents/workflows/
 ```
 
 ## 🛠️ 지원하는 프로젝트 타입
