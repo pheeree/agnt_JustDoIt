@@ -105,20 +105,59 @@ npm install -g @anthropic-ai/claude-code
 
 ---
 
-## 6. 프로젝트 클론 및 사용
+## 6. 에이전트 설치 (GitHub에서)
+
+어떤 기기에서든 GitHub에서 바로 설치할 수 있습니다.
+
+### Claude Code — 글로벌 설치 (한 번만)
+
+한 번 설치하면 **어떤 프로젝트 폴더에서든** `/justdoit` 사용 가능:
 
 ```bash
-# 저장소 클론
-gh repo clone pheeree/agnt_JustDoIt
+# GitHub에서 다운로드
+gh repo clone pheeree/agnt_JustDoIt /tmp/agnt_JustDoIt
 
-# 글로벌 커맨드 설치 (모든 프로젝트에서 사용)
+# 글로벌 커맨드 폴더에 복사
 mkdir -p ~/.claude/commands
-cp agnt_JustDoIt/.claude/commands/*.md ~/.claude/commands/
+cp /tmp/agnt_JustDoIt/.claude/commands/*.md ~/.claude/commands/
 
-# 사용
-cd your-project
+# 사용: 아무 프로젝트 폴더에서
 claude
 # 프롬프트에서: /justdoit 나만의 할일 관리 웹앱을 만들고 싶어
+```
+
+### Antigravity — 원커맨드 설치 설정
+
+Antigravity는 프로젝트마다 `.agents/workflows/` 폴더가 필요합니다.
+**셸 별칭(alias)**을 등록하면 어디서든 한 단어로 설치할 수 있습니다:
+
+**1단계: 별칭 등록 (한 번만)**
+
+```bash
+echo "alias jdi-install='gh repo clone pheeree/agnt_JustDoIt /tmp/agnt_JustDoIt 2>/dev/null; mkdir -p .agents/workflows; cp /tmp/agnt_JustDoIt/.agents/workflows/*.md .agents/workflows/'" >> ~/.zshrc
+source ~/.zshrc
+```
+
+**2단계: 사용 (프로젝트마다)**
+
+```bash
+cd my-new-project
+jdi-install    # ← 이 한 마디면 설치 끝!
+```
+
+### 두 환경 모두 한 번에 설치
+
+```bash
+# GitHub에서 다운로드
+gh repo clone pheeree/agnt_JustDoIt /tmp/agnt_JustDoIt
+
+# Claude Code 글로벌 설치
+mkdir -p ~/.claude/commands
+cp /tmp/agnt_JustDoIt/.claude/commands/*.md ~/.claude/commands/
+
+# Antigravity 현재 프로젝트에 설치
+mkdir -p .agents/workflows
+cp /tmp/agnt_JustDoIt/.agents/workflows/*.md .agents/workflows/
 ```
 
 ---
